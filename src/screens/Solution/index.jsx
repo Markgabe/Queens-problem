@@ -10,7 +10,7 @@ import Queens from '../../utils/n-queens'
 import { sleep } from '../../utils/sleep'
 import { initializeAndFillArray } from '../../utils/arrays'
 
-function Game() {
+function Solution() {
 	const [size, setSize] = useState(8)
 	const [queensMat, setQueensMat ] = useState(initializeAndFillArray(100, false))
 	const [blockedMat, setBlockedMat ] = useState(initializeAndFillArray(100, false))
@@ -23,7 +23,7 @@ function Game() {
 	const [movements, setMovements] = useState([])
 
 	useEffect(() => {
-		const [moves, queens] = Queens(size)
+		const [queens, moves] = Queens(size)
 		const auxMoves = []
 		moves.forEach(queen => {
 			auxMoves.push([queen.lin, queen.col])
@@ -93,7 +93,7 @@ function Game() {
 	const handleSetSize = () => {
 		setSize(tam)
 		const auxMoves = []
-		Queens(tam)[0].forEach(queen => {
+		Queens(tam)[1].forEach(queen => {
 			auxMoves.push([queen.lin, queen.col])
 		})
 		setMovements(auxMoves)
@@ -140,4 +140,4 @@ function Game() {
 	);
 }
 
-export default Game;
+export default Solution;

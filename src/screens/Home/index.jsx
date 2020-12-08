@@ -13,7 +13,10 @@ function Home() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/game/5">Game</Link>
+            <Link to="/game">Game</Link>
+          </li>
+          <li>
+            <Link to="/solution">Solution</Link>
           </li>
         </ul>
       </nav>
