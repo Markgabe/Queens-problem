@@ -1,25 +1,28 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/button'
 
 // import { Container } from './styles';
 
 function Home() {
   return (
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/game">Game</Link>
-          </li>
-          <li>
-            <Link to="/solution">Solution</Link>
-          </li>
-        </ul>
-      </nav>
+    <div className="vh-100">
+		<Link to="/game">
+			<Button block className="h-50" variant="dark">
+				<p className="display-1 font-weight-bold">
+					Game
+				</p>
+			</Button>
+		</Link>
+
+		<Link to="/solution">
+			<Button block className="h-50" variant="dark">
+				<p className="display-1 font-weight-bold">
+					Solution
+				</p>
+			</Button>
+		</Link>
     </div>
   );
 }

@@ -1,8 +1,9 @@
-/* eslint-disable no-tabs */
 import styled from 'styled-components';
 
 
 export const Container = styled.div`
+	width: 400px;
+	height: 90vh;
 	display: flex;
-	flex: 1 1 0;
-`;
+	flex-direction: column;
+`

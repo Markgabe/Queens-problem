@@ -1,37 +1,14 @@
 import styled from 'styled-components';
 
-import {LeftArrowAlt, RightArrowAlt} from '@styled-icons/boxicons-regular'
-
-import { MediaSkipForward } from '@styled-icons/open-iconic'
 
 export const Container = styled.div`
+	height: 100vh;
 	display: flex;
 	justify-content: space-around;
+	align-items: center;
 `;
 
 export const TableSpace = styled.div`
-	width: 600px;
-	height: 600px;
+	width: 90vh;
+	height: 90vh;
 `;
-
-export const MenuContainer = styled.div`
-	width: 200px;
-	height: 600px;
-	display: flex;
-	flex-direction: column;
-`
-
-export const NextButton = styled(RightArrowAlt)`
-	width: 100%;
-	cursor: pointer;
-`
-
-export const PreviousButton = styled(LeftArrowAlt)`
-	width: 100%;
-	cursor: pointer;
-`
-
-export const SkipButton = styled(MediaSkipForward)`
-	width: 100%;
-	cursor: pointer;
-`

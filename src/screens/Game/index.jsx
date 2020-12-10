@@ -1,22 +1,19 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 
-import { Container, MenuContainer, TableSpace, NextButton, PreviousButton, SkipButton } from './styles';
+import { Container, TableSpace } from './styles';
 
 import Table from '../../components/Table';
-import Block from '../../components/Block';
+import Menu from '../../components/Menu';
 
 import Queens from '../../utils/n-queens'
-import { sleep } from '../../utils/sleep'
 import { initializeAndFillArray } from '../../utils/arrays'
 
 function Game() {
 	const [size, setSize] = useState(8)
 	const [queensMat, setQueensMat ] = useState(initializeAndFillArray(100, false))
 	const [blockedMat, setBlockedMat ] = useState(initializeAndFillArray(100, false))
-	
-	const [xVal, setXVal] = useState(0)
-	const [yVal, setYVal] = useState(0)
+
 	const [tam, setTam] = useState(8)
 
 	const [lastMovement, setLastMovement] = useState(0)
@@ -99,18 +96,7 @@ function Game() {
 		setMovements(auxMoves)
 	}
 
-	const modX = (e) => {
-		e.preventDefault()
-		setXVal(parseInt(e.target.value, 10) || 0)
-	}
-
-	const modY = (e) => {
-		e.preventDefault()
-		setYVal(parseInt(e.target.value, 10) || 0)
-	}
-
 	const modTam = (e) => {
-		e.preventDefault()
 		setTam(parseInt(e.target.value, 10) || 0)
 	}
 	
@@ -119,23 +105,14 @@ function Game() {
 			<TableSpace>
 				<Table size={size} queensMat={queensMat} blockedMat={blockedMat} switchFunction={switchValue}/>
 			</TableSpace>
-			<MenuContainer>
-				<div>
-					<h1 className="display-4">Mover dama</h1>
-					<input type="text" value={xVal} onChange={e => modX(e)}/>
-					<input type="text" value={yVal} onChange={e => modY(e)}/>
-					<button onClick={() =>switchValue(xVal, yVal)}>Mover</button>
-				</div>
-				<div>
-					<h1 className="display-4">Mudar tamanho</h1>
-					<input type="text" value={tam} onChange={e => modTam(e)}/>
-					<button onClick={() => handleSetSize(tam)}>Mudar</button>
-				</div>
-				<div style={{display: 'flex'}}>
-					<PreviousButton onClick={() => doMovement("prev")}/>
-					<NextButton onClick={() => doMovement("next")}/>
-				</div>
-			</MenuContainer>
+			<Menu 
+				modTam={modTam} 
+				handleSetSize={handleSetSize} 
+				doMovement={doMovement} 
+				tam={tam} 
+				firstMove={lastMovement === 0} 
+				lastMove={lastMovement === movements.length}
+			/>
 		</Container>
 	);
 }
